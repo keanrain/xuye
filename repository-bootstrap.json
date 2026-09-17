@@ -1,0 +1,14 @@
+{
+  "format": 1,
+  "target_owner": "keanrain",
+  "target_name": "xuye",
+  "visibility": "private",
+  "default_branch": "main",
+  "source_archive": "Xuye-P0-delete-guard-9e948ba.zip",
+  "source_archive_sha256": "d99c2b0659e776cbd3fabe2f00dac4451878eb9c3723164eb62c7481ecace2c0",
+  "upstream_commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "remote_created_in_chat": false,
+  "application_complete": false,
+  "initial_commit_author": "Xuye Bootstrap <xuye-bootstrap@localhost>",
+  "note": "Prepared locally for the user; not impersonating the account owner as commit author."
+}

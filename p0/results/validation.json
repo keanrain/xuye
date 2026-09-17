@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-09-17T08:55:46.443225+00:00",
+  "python_syntax": "passed",
+  "js_syntax": "passed",
+  "product_documents_unchanged": {
+    "PRODUCT.md": true,
+    "PRODUCT-SPEC.md": true,
+    "DESIGN.md": true
+  },
+  "upstream_commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "full_source_blobs_verified": 5,
+  "function_ranges": 2,
+  "complete_checkout": false,
+  "internal_links_checked": 36,
+  "broken_links": [],
+  "fixed_tests": [
+    {
+      "log": "callchains-baseline.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-regression-red.tap",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-candidate-green.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "helpers-pinned.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    }
+  ],
+  "scope": "source integrity, function tests and archive validation; NOT application acceptance"
+}

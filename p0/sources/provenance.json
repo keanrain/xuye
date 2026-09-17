@@ -1,0 +1,22 @@
+{
+  "retrieval_date": "2026-09-17",
+  "common_upstream_commit": null,
+  "warning": "Web snapshots have different cache dates. Excerpts were manually transcribed, not downloaded as byte-identical git blobs. Their local hashes pin ONLY these local excerpts. Do not combine them into a claimed upstream release.",
+  "excerpt_files": [
+    {
+      "local_path": "p0/sources/filesmd-fs-excerpt.js",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/lib/fs.js",
+      "scope": "getFileHandle through rename; rendered source lines 14-123, 1-indexed",
+      "transformation": "added attribution header only; omitted code outside stated excerpt",
+      "local_sha256": "de4059184c193b77efa6526b30bcd54494bb46bec92b9655724003e857726ecc"
+    },
+    {
+      "local_path": "p0/tests/mergecore/core.go",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/server/sync/merge.go",
+      "scope": "backtrack function",
+      "transformation": "standalone package name; omitted unrelated routines; test-only DP driver excludes journal headers",
+      "local_sha256": "fa0a1b3cf5280b5f16029317ca401f973445434a29932caaeb327419fce540c3"
+    }
+  ],
+  "license_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/LICENSE"
+}

@@ -1,0 +1,12 @@
+=== RUN   TestIdenticalLinesDeduplicated
+--- PASS: TestIdenticalLinesDeduplicated (0.00s)
+=== RUN   TestEmptySideRetainsOther
+--- PASS: TestEmptySideRetainsOther (0.00s)
+=== RUN   TestCharacterizeTwoTaskStatesSurvive
+    core_test.go:34: characterization output (not desired product behavior): "- [ ] 验证内存 <!-- personalos-task:33333333-3333-4333-8333-333333333333 -->\n- [x] 验证内存 <!-- personalos-task:33333333-3333-4333-8333-333333333333 -->"
+--- PASS: TestCharacterizeTwoTaskStatesSurvive (0.00s)
+=== RUN   TestCharacterizeTwoRenamedTaskLinesSurvive
+    core_test.go:42: same ID appears twice: "- [ ] 原标题 <!-- personalos-task:33333333-3333-4333-8333-333333333333 -->\n- [ ] 新标题 <!-- personalos-task:33333333-3333-4333-8333-333333333333 -->"
+--- PASS: TestCharacterizeTwoRenamedTaskLinesSurvive (0.00s)
+PASS
+ok  	xuye-p0-mergecore	0.002s

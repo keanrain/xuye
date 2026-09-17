@@ -1,0 +1,23 @@
+# Never commit credentials or real knowledge libraries.
+.env
+.env.*
+!.env.example
+*credentials*.json
+*.pem
+*.key
+tokens/
+secrets/
+Vault/
+vault/
+real-vault/
+storage/
+# P0 checkout is fetched separately; it is not a Git submodule or app delivery.
+/upstream/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+playwright-report/
+test-results/
+target/
+/dist/

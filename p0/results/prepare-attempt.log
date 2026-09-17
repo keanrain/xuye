@@ -1,0 +1,5 @@
++ git clone --depth 1 --branch main https://github.com/zakirullin/files.md.git /mnt/data/xuye-p0/upstream
+Cloning into '/mnt/data/xuye-p0/upstream'...
+fatal: unable to access 'https://github.com/zakirullin/files.md.git/': Could not resolve host: github.com
+
+Command failed (128); log: /mnt/data/xuye-p0/p0/results/clone.log

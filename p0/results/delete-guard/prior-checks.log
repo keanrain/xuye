@@ -1,0 +1,31 @@
+{
+  "commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "verified_full_blobs": 5,
+  "range_materials": 4,
+  "test_runs": [
+    {
+      "log": "callchains-baseline.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-regression-red.tap",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-candidate-green.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "helpers-pinned.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    }
+  ]
+}

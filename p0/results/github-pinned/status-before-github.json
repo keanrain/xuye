@@ -1,0 +1,46 @@
+{
+  "phase": "P0",
+  "overall": "started-partial; release blocked",
+  "upstream_commit": null,
+  "completed": {
+    "basis": "five v0.11 documents read; product/spec/design unchanged",
+    "helper_characterization": {
+      "node_disk_adapter": {
+        "executed": 9,
+        "expected_observations_confirmed": 9
+      },
+      "go_lcs_core": {
+        "executed": 4,
+        "expected_observations_confirmed": 4
+      }
+    },
+    "driver_self_checks": {
+      "executed": 4,
+      "passed": 4
+    },
+    "source_inventory_entries": 11
+  },
+  "blocking": [
+    {
+      "stage": "upstream checkout/pin",
+      "result": "git clone exit 128: Could not resolve host: github.com"
+    },
+    {
+      "stage": "Chromium helper harness navigation",
+      "result": "net::ERR_BLOCKED_BY_ADMINISTRATOR on localhost; no policy bypass attempted"
+    }
+  ],
+  "not_completed": [
+    "pinned complete checkout",
+    "original application boot",
+    "upstream go test ./...",
+    "upstream Playwright suite",
+    "all-write-path audit",
+    "real OPFS behavior",
+    "Tauri desktop/mobile",
+    "model calls",
+    "notification/share acceptance",
+    "P0 sign-off"
+  ],
+  "important": "Passing characterization assertions confirm observed behavior, including unsafe edge cases. They are not product safety or S01–S28 passes."
+}

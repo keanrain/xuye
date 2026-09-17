@@ -1,0 +1,8 @@
+{
+  "scope": "web-transcribed helper excerpt with actual Chromium OPFS; not upstream E2E",
+  "checks": [],
+  "fatal_error": "Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:44043/index.html\nCall log:\n  - navigating to \"http://127.0.0.1:44043/index.html\", waiting until \"load\"\n",
+  "observations_confirmed": 0,
+  "observation_count": 0,
+  "all_expected_observations": false
+}

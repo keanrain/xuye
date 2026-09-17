@@ -1,0 +1,109 @@
+{
+  "repository": "https://github.com/zakirullin/files.md.git",
+  "commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "tree": "3f484150ea082a3f91e7b2b194f8bae9edf48cbf",
+  "branch_observed": "main",
+  "commit_date": "2026-09-02T05:05:10Z",
+  "commit_message": "fix memory leak",
+  "pin_source": "connected GitHub branch API, 2026-09-17",
+  "complete_local_checkout": false,
+  "retrieval": "read-only GitHub connector; normal git network still unavailable",
+  "blobs": [
+    {
+      "local_path": "p0/pinned/9e948ba/web/lib/fs.js",
+      "repository_path": "web/lib/fs.js",
+      "kind": "full-blob",
+      "git_blob_sha": "16e853ae2096dda936d7006619fe9d12c0d09493",
+      "size": 10386,
+      "sha256": "fcfc522230ac82115bbb1413a78206e62be897ea1e249dd4928276931814c3e1"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/go.mod",
+      "repository_path": "go.mod",
+      "kind": "full-blob",
+      "git_blob_sha": "4f95b908aa685f68f8c9e2883d44e30de01a5442",
+      "size": 802,
+      "sha256": "5dede275a78b5257117179dd607bda2fa73cbe5ea48e3daa0ec6c456dc55bce6"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/LICENSE",
+      "repository_path": "LICENSE",
+      "kind": "full-blob",
+      "git_blob_sha": "b9d9bccb1cb462c8f04d1efdb07bb8a7ae85ded8",
+      "size": 1073,
+      "sha256": "a6a0db3c9d85182e136ab625e4cd38b65976d34e13b289596a4f72dfc94d02e9"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/tests/playwright.config.js",
+      "repository_path": "tests/playwright.config.js",
+      "kind": "full-blob",
+      "git_blob_sha": "90e839a6ae2b903e6491a59fbe305035cdd9d930",
+      "size": 1385,
+      "sha256": "2b4ce697d71f793aff3d05918b32a153dfb41f429dc150b2083752086571aa50"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/tests/package.json",
+      "repository_path": "tests/package.json",
+      "kind": "full-blob",
+      "git_blob_sha": "5e5d8fae2971a6ac85865b4f63ce746c48b65f25",
+      "size": 396,
+      "sha256": "fcc5245d464c49afbcf18e5077700c33d6dfaeac1c11a3722a801d80d191e150"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/web/moveFile.function.js",
+      "repository_path": "web/files.js",
+      "kind": "selected-function-not-full-blob",
+      "symbol": "moveFile",
+      "source_file_git_blob_sha": "c44e9caf7941bdadcf28a893e6db3890150b6275",
+      "source_lines": [
+        994,
+        1027
+      ],
+      "sha256": "dc4fe7f4672d2737545b753d8203e78ca9d93423e3ebabb7ec5ada2572c207a4",
+      "transfer_note": "saved from fixed-ref GitHub range response; full-file blob not reconstructed locally"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js",
+      "repository_path": "web/files.js",
+      "kind": "selected-function-not-full-blob",
+      "symbol": "collectModifiedAndDeletedFiles",
+      "source_file_git_blob_sha": "c44e9caf7941bdadcf28a893e6db3890150b6275",
+      "source_lines": [
+        704,
+        792
+      ],
+      "sha256": "a5195d916b039a1a37b18e07f73934ef29478827d13928963405886584ad8025",
+      "transfer_note": "saved from fixed-ref GitHub range response; full-file blob not reconstructed locally"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/web/syncFilesWithServer.function.js",
+      "repository_path": "web/files.js",
+      "kind": "selected-function-not-full-blob",
+      "symbol": "syncFilesWithServer",
+      "source_file_git_blob_sha": "c44e9caf7941bdadcf28a893e6db3890150b6275",
+      "source_lines": [
+        278,
+        420
+      ],
+      "sha256": "92ef983917f2a851c6b8b21e8e108e2a1497dfe33a85711e574de3eff1468f88",
+      "source_url": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/web/files.js#L278",
+      "transfer_note": "Saved from read-only GitHub fetch_file 273-434; selected UTF-8 function. The file blob SHA is upstream identity, not a local full-file verification.",
+      "source_citation": "turn57file0 L2-L5"
+    },
+    {
+      "local_path": "p0/pinned/9e948ba/web/getFileStatus.function.js",
+      "repository_path": "web/files.js",
+      "kind": "selected-function-not-full-blob",
+      "symbol": "getFileStatus",
+      "source_lines": [
+        813,
+        868
+      ],
+      "source_file_git_blob_sha": "c44e9caf7941bdadcf28a893e6db3890150b6275",
+      "sha256": "4c1133195eb7361beb9506b1fc8eb131316f5f662bcd34858d4057421d86fba8",
+      "source_url": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/web/files.js#L813",
+      "transfer_note": "Fixed-ref GitHub range 811-871; selected UTF-8 function, not full-file blob reconstruction.",
+      "source_citation": "turn58file0 L2-L5"
+    }
+  ]
+}

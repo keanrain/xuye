@@ -1,0 +1,291 @@
+TAP version 13
+# Subtest: healthy unchanged file is neither modified nor deleted
+ok 1 - healthy unchanged file is neither modified nor deleted
+  ---
+  duration_ms: 46.046049
+  type: 'test'
+  ...
+# Subtest: healthy new and modified text remains uploadable
+ok 2 - healthy new and modified text remains uploadable
+  ---
+  duration_ms: 25.184403
+  type: 'test'
+  ...
+# Subtest: confirmed missing legacy path remains a deletion candidate, not an actual deletion
+ok 3 - confirmed missing legacy path remains a deletion candidate, not an actual deletion
+  ---
+  duration_ms: 15.445952
+  type: 'test'
+  ...
+# Subtest: actual pinned getFileStatus read error aborts classification
+not ok 4 - actual pinned getFileStatus read error aborts classification
+  ---
+  duration_ms: 14.636943
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:155:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:158:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: rejected status promise is normalized to incomplete scan
+not ok 5 - rejected status promise is normalized to incomplete scan
+  ---
+  duration_ms: 14.244413
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:161:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The "incomplete" validation function is expected to return "true". Received false
+    
+    Caught error:
+    
+    Error: injected rejection
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:164:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: synchronous status exception is normalized to incomplete scan
+not ok 6 - synchronous status exception is normalized to incomplete scan
+  ---
+  duration_ms: 15.600186
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:166:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The "incomplete" validation function is expected to return "true". Received false
+    
+    Caught error:
+    
+    Error: injected synchronous failure
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:169:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: unexpected status is not accepted as evidence of presence or deletion
+not ok 7 - unexpected status is not accepted as evidence of presence or deletion
+  ---
+  duration_ms: 10.945818
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:171:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:174:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: mismatched result path cannot cause another path to be deleted
+not ok 8 - mismatched result path cannot cause another path to be deleted
+  ---
+  duration_ms: 7.186725
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:176:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:179:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: modified result without text payload blocks the batch
+not ok 9 - modified result without text payload blocks the batch
+  ---
+  duration_ms: 11.334694
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:181:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:184:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: stale memory tree cannot authorize deletion of a file still on disk
+not ok 10 - stale memory tree cannot authorize deletion of a file still on disk
+  ---
+  duration_ms: 24.873932
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:186:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:189:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: permission failure probing a deletion candidate is not NotFound
+not ok 11 - permission failure probing a deletion candidate is not NotFound
+  ---
+  duration_ms: 7.133564
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:192:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:195:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: root handle failure cannot authorize inferred deletions
+not ok 12 - root handle failure cannot authorize inferred deletions
+  ---
+  duration_ms: 6.989918
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:197:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection (incomplete).'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:200:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: text-sync exclusions apply equally to local and server scans
+not ok 13 - text-sync exclusions apply equally to local and server scans
+  ---
+  duration_ms: 8.83948
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:202:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    3 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 3
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:208:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: too-many-deletions guard preserves the confirmed server snapshot
+not ok 14 - too-many-deletions guard preserves the confirmed server snapshot
+  ---
+  duration_ms: 15.252566
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:210:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    [32m+ actual[39m [31m- expected[39m
+    
+    [32m+[39m [
+    [32m+[39m   'server'
+    [32m+[39m ]
+    [31m-[39m []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: 'server'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:216:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: mixed good change and read failure sends zero batches and changes no snapshot
+not ok 15 - mixed good change and read failure sends zero batches and changes no snapshot
+  ---
+  duration_ms: 8.846204
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:218:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    no upload, including apparently-good changes
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:222:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: scan rejection releases the in-flight flag without uploading
+not ok 16 - scan rejection releases the in-flight flag without uploading
+  ---
+  duration_ms: 9.712734
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:228:1'
+  failureType: 'testCodeFailure'
+  error: 'injected failure'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    h.ctx.getFileStatus (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:230:47)
+    /mnt/data/.xuye-next-work/xuye-p0/p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js:32:25
+    walk (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:53:31)
+    collectModifiedAndDeletedFiles (/mnt/data/.xuye-next-work/xuye-p0/p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js:10:5)
+    Object.syncFilesWithServer (/mnt/data/.xuye-next-work/xuye-p0/p0/pinned/9e948ba/web/syncFilesWithServer.function.js:31:38)
+    TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:231:17)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: after a blocked scan, clearing the fault permits a normal retry
+not ok 17 - after a blocked scan, clearing the fault permits a normal retry
+  ---
+  duration_ms: 6.801449
+  type: 'test'
+  location: '/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:235:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs:239:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: healthy caller still submits one batch and updates the confirmed cursor
+ok 18 - healthy caller still submits one batch and updates the confirmed cursor
+  ---
+  duration_ms: 7.948412
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 4
+# fail 14
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 546.064108

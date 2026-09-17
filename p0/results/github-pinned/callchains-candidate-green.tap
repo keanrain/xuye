@@ -1,0 +1,55 @@
+TAP version 13
+# Subtest: fixed fs.js Git blob verified before every call-chain test
+ok 1 - fixed fs.js Git blob verified before every call-chain test
+  ---
+  duration_ms: 35.51023
+  type: 'test'
+  ...
+# Subtest: successful directory move preserves both files
+ok 2 - successful directory move preserves both files
+  ---
+  duration_ms: 57.312821
+  type: 'test'
+  ...
+# Subtest: injected target-write failure: inspect original source survival
+ok 3 - injected target-write failure: inspect original source survival
+  ---
+  duration_ms: 26.854456
+  type: 'test'
+  ...
+# {"candidate":true,"source":"ONLY ORIGINAL","target":"","recursiveOldDelete":false}
+# Subtest: one of two files fails: identify loss vs retained failed file
+ok 4 - one of two files fails: identify loss vs retained failed file
+  ---
+  duration_ms: 32.193696
+  type: 'test'
+  ...
+# {"candidate":true,"remainingFailedSource":"B"}
+# Subtest: move into own descendant is refused without deletion
+ok 5 - move into own descendant is refused without deletion
+  ---
+  duration_ms: 14.829463
+  type: 'test'
+  ...
+# Subtest: sync classifier: existing file with status error becomes deletion candidate
+ok 6 - sync classifier: existing file with status error becomes deletion candidate
+  ---
+  duration_ms: 13.177224
+  type: 'test'
+  ...
+# Deletion candidate produced; no live upload or remote deletion performed. Candidate move patch does NOT fix this.
+# Subtest: sync classifier healthy file does not become deletion candidate
+ok 7 - sync classifier healthy file does not become deletion candidate
+  ---
+  duration_ms: 10.425471
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 432.782535

@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: healthy unchanged file is neither modified nor deleted
+ok 1 - healthy unchanged file is neither modified nor deleted
+  ---
+  duration_ms: 40.965219
+  type: 'test'
+  ...
+# Subtest: healthy new and modified text remains uploadable
+ok 2 - healthy new and modified text remains uploadable
+  ---
+  duration_ms: 28.86741
+  type: 'test'
+  ...
+# Subtest: confirmed missing legacy path remains a deletion candidate, not an actual deletion
+ok 3 - confirmed missing legacy path remains a deletion candidate, not an actual deletion
+  ---
+  duration_ms: 16.606922
+  type: 'test'
+  ...
+# Subtest: actual pinned getFileStatus read error aborts classification
+ok 4 - actual pinned getFileStatus read error aborts classification
+  ---
+  duration_ms: 11.164769
+  type: 'test'
+  ...
+# Subtest: rejected status promise is normalized to incomplete scan
+ok 5 - rejected status promise is normalized to incomplete scan
+  ---
+  duration_ms: 16.710231
+  type: 'test'
+  ...
+# Subtest: synchronous status exception is normalized to incomplete scan
+ok 6 - synchronous status exception is normalized to incomplete scan
+  ---
+  duration_ms: 8.95306
+  type: 'test'
+  ...
+# Subtest: unexpected status is not accepted as evidence of presence or deletion
+ok 7 - unexpected status is not accepted as evidence of presence or deletion
+  ---
+  duration_ms: 7.963407
+  type: 'test'
+  ...
+# Subtest: mismatched result path cannot cause another path to be deleted
+ok 8 - mismatched result path cannot cause another path to be deleted
+  ---
+  duration_ms: 6.094448
+  type: 'test'
+  ...
+# Subtest: modified result without text payload blocks the batch
+ok 9 - modified result without text payload blocks the batch
+  ---
+  duration_ms: 7.538436
+  type: 'test'
+  ...
+# Subtest: stale memory tree cannot authorize deletion of a file still on disk
+ok 10 - stale memory tree cannot authorize deletion of a file still on disk
+  ---
+  duration_ms: 14.243958
+  type: 'test'
+  ...
+# Subtest: permission failure probing a deletion candidate is not NotFound
+ok 11 - permission failure probing a deletion candidate is not NotFound
+  ---
+  duration_ms: 8.184834
+  type: 'test'
+  ...
+# Subtest: root handle failure cannot authorize inferred deletions
+ok 12 - root handle failure cannot authorize inferred deletions
+  ---
+  duration_ms: 5.373769
+  type: 'test'
+  ...
+# Subtest: text-sync exclusions apply equally to local and server scans
+ok 13 - text-sync exclusions apply equally to local and server scans
+  ---
+  duration_ms: 8.37152
+  type: 'test'
+  ...
+# Subtest: too-many-deletions guard preserves the confirmed server snapshot
+ok 14 - too-many-deletions guard preserves the confirmed server snapshot
+  ---
+  duration_ms: 12.404073
+  type: 'test'
+  ...
+# Subtest: mixed good change and read failure sends zero batches and changes no snapshot
+ok 15 - mixed good change and read failure sends zero batches and changes no snapshot
+  ---
+  duration_ms: 6.948184
+  type: 'test'
+  ...
+# Subtest: scan rejection releases the in-flight flag without uploading
+ok 16 - scan rejection releases the in-flight flag without uploading
+  ---
+  duration_ms: 4.992069
+  type: 'test'
+  ...
+# Subtest: after a blocked scan, clearing the fault permits a normal retry
+ok 17 - after a blocked scan, clearing the fault permits a normal retry
+  ---
+  duration_ms: 7.422114
+  type: 'test'
+  ...
+# Subtest: healthy caller still submits one batch and updates the confirmed cursor
+ok 18 - healthy caller still submits one batch and updates the confirmed cursor
+  ---
+  duration_ms: 7.515216
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 452.114512

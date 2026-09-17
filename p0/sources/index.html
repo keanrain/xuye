@@ -1,0 +1,10 @@
+<!doctype html><meta charset="UTF-8"><title>P0 excerpt test fixture — NOT Files.md application</title>
+<h1>P0 source-excerpt test fixture</h1><p>This is a helper test harness, not the upstream application.</p>
+<script>
+async function getRootDirHandle(){ return navigator.storage.getDirectory(); }
+function log(){}
+function logError(){}
+function removeMemFile(){}
+async function isContentEqual(path, content){ return await read(path) === content; }
+</script>
+<script src="filesmd-fs-excerpt.js"></script>

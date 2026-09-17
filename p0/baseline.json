@@ -1,0 +1,15 @@
+{
+  "phase": "P0",
+  "basis_version": "v0.11",
+  "upstream_repository": "https://github.com/zakirullin/files.md",
+  "upstream_commit": null,
+  "pin_status": "blocked: container cannot resolve github.com; complete repository not downloaded",
+  "sources_scope": "web-rendered excerpts, NOT a byte-verified checkout",
+  "documents": {
+    "README.md": "3e11ff12556c6ee8f0870cd5ae8e373ae78cdd55b34ce4a5b9bface8531771c2",
+    "PRODUCT-SPEC.md": "0f897167db20ed3c795ce1ddea08a44b119f2fed9b17abb2efbcc64b971539b2",
+    "TECHNICAL_DESIGN.md": "2bdee1a992292e109c073ec31e46af772099b9b05e2b012204201ef8b379275c",
+    "DESIGN.md": "db69fc91d25bcfcba4fcafbde8f0928df518924a5259c3832b1707ed393f5d4f",
+    "PRODUCT.md": "28d98ed1830a4062f494f6b7f2655f561e739b32ec95377869a914e9aaea9a2f"
+  }
+}

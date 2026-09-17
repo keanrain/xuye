@@ -1,0 +1,166 @@
+diff --git a/web/files.js b/web/files.js
+--- a/web/files.js
++++ b/web/files.js
+@@ -305,7 +305,15 @@
+     ;
+     if (hasFullySyncedFilesAtLeastOnce) {
+         log('SYNCED AT LEAST ONCE, collecting local files', server['timestamps']);
+-        ({modified, deleted} = await collectModifiedAndDeletedFiles());
++        try {
++            ({modified, deleted} = await collectModifiedAndDeletedFiles());
++        } catch (error) {
++            // Nothing was posted and no server snapshot has been changed.
++            // A later timer/manual refresh must be allowed to retry.
++            isSyncingFiles = false;
++            logError('Local sync scan failed; no batch sent:', error);
++            return;
++        }
+     } else {
+         log('NEVER SYNCED BEFORE');
+     }
+@@ -704,89 +712,78 @@
+ async function collectModifiedAndDeletedFiles() {
+     const modifiedFiles = [];
+-    const existingFiles = {};
++    const existingFiles = new Set();
++    const failedPaths = new Set();
+     const promises = [];
+ 
+-    // Freeze paths to prevent RC. Current file can change during collecting.
++    // Freeze the two independently-synced editor paths for this scan.
+     const editorPath = editor.path;
+     const editor2Path = editor2.path;
+-    log('Frozen paths:', editorPath, editor2Path);
++    const inScope = path => path !== LOG_PATH && !path.startsWith('/media/')
++        && !isMediaPath(path) && path !== editorPath && path !== editor2Path;
++
++    function requireCompleteScan() {
++        if (failedPaths.size === 0) return;
++        const error = new Error('Local file scan incomplete; no batch may be uploaded.');
++        error.code = 'LOCAL_SCAN_INCOMPLETE';
++        error.paths = Array.from(failedPaths).sort();
++        throw error;
++    }
++
+     walk(files, (path, isFile) => {
+-        if (!isFile) {
+-            return;
+-        }
++        if (!isFile || !inScope(path)) return;
+ 
+-        if (path.startsWith('/media/') || path === LOG_PATH) {
+-            return;
+-        }
+-        // Binary media files (images, video) anywhere in the tree must not
+-        // go through the text sync path - file.text() corrupts them and the
+-        // JSON-escaped string can balloon past MaxFilenamesSize, returning
+-        // 400 from syncFilenames. They sync via syncMediaFile when in /media/.
+-        if (isMediaPath(path)) {
+-            return;
+-        }
+-
+-        // TODO write tests for that?
+-        if (path === editorPath || path === editor2Path) {
+-            log('Skip sending current file: ' + path);
+-            return;
+-        }
+-
+-        const promise = getFileStatus(path)
++        // Presence and readability are different facts. Never turn a failed
++        // content read into evidence that this path was deleted.
++        existingFiles.add(path);
++        const promise = Promise.resolve().then(() => getFileStatus(path))
+             .then(result => {
++                if (!result || !['new', 'modified', 'notModified'].includes(result.status)
++                    || result.path !== path
++                    || (result.status !== 'notModified' && typeof result.content !== 'string')) {
++                    failedPaths.add(path);
++                    return;
++                }
+                 if (result.status === 'modified' || result.status === 'new') {
+                     modifiedFiles.push(result);
+                 }
+-
+-                if (result.status !== 'error') {
+-                    existingFiles[result.path] = true;
+-                } else {
+-                    console.warn(`Error getting status for file ${path}:`, result);
+-                }
+-            });
++            })
++            .catch(() => failedPaths.add(path));
+         promises.push(promise);
+     });
++    await Promise.all(promises);
++    requireCompleteScan();
+ 
+-    await Promise.all(promises);
+-
+-    // Find deleted files that are in server files but not in existing files.
+-    let deleted = [];
++    // The in-memory tree may be stale. Probe a missing path without creating
++    // it before keeping the legacy deletion candidate. Only exists() returning
++    // false (NotFoundError) confirms absence; any other error blocks the batch.
++    const deletionCandidates = [];
+     walk(server.files, (path, isFile) => {
+-        if (!isFile) {
+-            return;
+-        }
+-
+-        // Chromium doesn't support those chars on any OS
+-        if (/[<>:'|?*\\/\x00-\x1F\x7F]/.test(toFilename(path))) {
+-            return;
+-        }
+-
+-        // Skip current files.
+-        if (path === editorPath || path === editor2Path) {
+-            return;
+-        }
+-
+-        if (existingFiles[path] === undefined) {
+-            log('DELETED because not in existing or modified files:', path);
+-            log('Current editors paths:', editor.path, editor2.path);
+-            // Log files entry
+-            log('Mem file:', getMemFile(path));
+-            deleted.push(path);
+-        }
++        if (!isFile || !inScope(path)) return;
++        if (/[<>:'|?*\\/\x00-\x1F\x7F]/.test(toFilename(path))) return;
++        if (!existingFiles.has(path)) deletionCandidates.push(path);
+     });
+ 
+-    // If there are too many deleted files, prob something is wrong, throw an alert
++    const deleted = [];
++    await Promise.all(deletionCandidates.map(async path => {
++        try {
++            if (await exists(path)) {
++                failedPaths.add(path); // Present on disk, absent from the scan.
++            } else {
++                deleted.push(path);
++            }
++        } catch {
++            failedPaths.add(path);
++        }
++    }));
++    requireCompleteScan();
++
++    // Preserve the last confirmed server snapshot, including on this guard.
+     if (deleted.length > 20) {
+-        alert(`Trying to delete more than 20 deleted files during sync (${deleted.length}). I won't proceed, please resolve the issue manually. Probably "files" is empty in local stroage for some reason, but there are actual files on the disk.`);
+-        // Show first 10 files
+-        alert('First 10 files: \n' + deleted.slice(0, 10).join('\n'));
+-        localStorage.removeItem("server");
+-        throw new Error('Too many deleted files during sync, aborting.');
+-        deleted = [];
++        alert(`Sync paused: ${deleted.length} deletion candidates need review.`);
++        const error = new Error('Too many deletion candidates; nothing uploaded.');
++        error.code = 'TOO_MANY_DELETIONS';
++        throw error;
+     }
+ 
+-    return {
+-        modified: modifiedFiles,
+-        deleted: deleted,
+-    };
++    return { modified: modifiedFiles, deleted: deleted.sort() };
+ }

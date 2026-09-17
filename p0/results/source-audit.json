@@ -1,0 +1,103 @@
+{
+  "scope": "partial source-level inventory from readable web snapshots; NOT all repository write paths",
+  "upstream_commit": null,
+  "generated_at_utc": "2026-09-17T08:23:01.777519+00:00",
+  "remaining_coverage": [
+    "complete tracked source tree",
+    "server/fs internals",
+    "all editor/modals/sidebar callers",
+    "import paths and all dynamic entrypoints",
+    "full upstream test configuration",
+    "common commit verification"
+  ],
+  "entries": [
+    {
+      "file": "web/lib/fs.js",
+      "symbol": "write / writeAtEnd / writeIfContentIsDifferent / rename / remove",
+      "observation": "Direct createWritable and remove; rename reads text, writes target, then removes source.",
+      "evidence_status": "verified source + isolated helper tests",
+      "adaptation": "Route all production changes through a controlled writer; preserve bytes; explicit target-exists behavior.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/lib/fs.js"
+    },
+    {
+      "file": "web/files.js",
+      "symbol": "syncCurrentFile",
+      "observation": "Autosave has direct file.handle.createWritable; heading-based rename also uses remove(old) before writeIfContentIsDifferent(new). Name-collision checks exist in this UI path.",
+      "evidence_status": "verified source; entire flow NOT run",
+      "adaptation": "First adaptation point. Separate save, rename and sync; inject faults at target creation, old removal and new write.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/files.js"
+    },
+    {
+      "file": "web/chat.js",
+      "symbol": "toggleChatMessage",
+      "observation": "Read-modify-write directly via handle.createWritable.",
+      "evidence_status": "verified cached source, compressed line layout",
+      "adaptation": "Must use same command layer; ordinary checkbox is not automatically a domain task.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/chat.js"
+    },
+    {
+      "file": "web/welcome.js",
+      "symbol": "getTemporaryStorageDirHandle / moveUserFiles",
+      "observation": "Seeds sample files and copies temporary data directly; unsupported OPFS falls back to memory.",
+      "evidence_status": "verified cached source, not browser-tested",
+      "adaptation": "Keep demo explicitly separate; no silent memory fallback in formal container.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/welcome.js"
+    },
+    {
+      "file": "web/files.js",
+      "symbol": "moveCurrentFile / moveFile",
+      "observation": "Writes new path and removes old; catches errors locally.",
+      "evidence_status": "verified source; UI protections/caller graph incomplete",
+      "adaptation": "Propagate structured outcome; do not assume successful resolved promise means full move.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/files.js"
+    },
+    {
+      "file": "web/files.js",
+      "symbol": "addBacklink",
+      "observation": "Appends an actual Markdown backlink into target through editor or write().",
+      "evidence_status": "verified source, not executed",
+      "adaptation": "Use derived backlinks for viewing; actual target edits need normal scoped commands.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/files.js"
+    },
+    {
+      "file": "web/files.js",
+      "symbol": "saveMediaFile / syncLocalFileWithServer",
+      "observation": "Media writes directly; incoming synchronization is a separate application route.",
+      "evidence_status": "verified sinks; all callers not enumerated",
+      "adaptation": "Disable non-M0 media/Bot routes for prototype; sync application must not bypass writer.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/files.js"
+    },
+    {
+      "file": "web/lib/fs.js",
+      "symbol": "removeDir / moveDir",
+      "observation": "Per-file operations plus recursive directory removal.",
+      "evidence_status": "verified source; complete cross-file call behavior unverified",
+      "adaptation": "Review failure propagation after pinned checkout, especially swallowed errors.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/lib/fs.js"
+    },
+    {
+      "file": "web/app.js",
+      "symbol": "window.saver / visibility handler",
+      "observation": "Focus/timer calls syncCurrentFile and synchronization.",
+      "evidence_status": "verified source",
+      "adaptation": "Audit lifecycle-triggered writes, not just button handlers.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/web/app.js"
+    },
+    {
+      "file": "server/sync/sync.go",
+      "symbol": "SyncFile and batch processing",
+      "observation": "Server loads content and applies synchronization separately from local UI.",
+      "evidence_status": "verified source, server not run",
+      "adaptation": "Keep disabled against Xuye vault until explicit protocol is validated.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/server/sync/sync.go"
+    },
+    {
+      "file": "server/worker.go",
+      "symbol": "MoveDueTasks / RemoveCompletedChecklistItems",
+      "observation": "Scheduled and nightly routines write Chat/Later/archive/journal content.",
+      "evidence_status": "verified cached source, server not run",
+      "adaptation": "Do not run legacy workers on Xuye formal content.",
+      "source_url": "https://raw.githubusercontent.com/zakirullin/files.md/main/server/worker.go"
+    }
+  ]
+}

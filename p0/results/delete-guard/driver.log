@@ -1,0 +1,58 @@
+{
+  "test_runs": [
+    {
+      "mode": "baseline",
+      "command": [
+        "node",
+        "--test",
+        "/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs"
+      ],
+      "exit_code": 1,
+      "tests": 18,
+      "pass": 4,
+      "fail": 14,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "expected_exit": 1,
+      "expectation_matched": true,
+      "log": "baseline.tap",
+      "failures": [
+        "actual pinned getFileStatus read error aborts classification",
+        "rejected status promise is normalized to incomplete scan",
+        "synchronous status exception is normalized to incomplete scan",
+        "unexpected status is not accepted as evidence of presence or deletion",
+        "mismatched result path cannot cause another path to be deleted",
+        "modified result without text payload blocks the batch",
+        "stale memory tree cannot authorize deletion of a file still on disk",
+        "permission failure probing a deletion candidate is not NotFound",
+        "root handle failure cannot authorize inferred deletions",
+        "text-sync exclusions apply equally to local and server scans",
+        "too-many-deletions guard preserves the confirmed server snapshot",
+        "mixed good change and read failure sends zero batches and changes no snapshot",
+        "scan rejection releases the in-flight flag without uploading",
+        "after a blocked scan, clearing the fault permits a normal retry"
+      ]
+    },
+    {
+      "mode": "candidate",
+      "command": [
+        "node",
+        "--test",
+        "/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs"
+      ],
+      "exit_code": 0,
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "expected_exit": 0,
+      "expectation_matched": true,
+      "log": "candidate.tap",
+      "failures": []
+    }
+  ],
+  "all_expected_results_matched": true
+}

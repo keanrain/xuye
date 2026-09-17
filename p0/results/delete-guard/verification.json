@@ -1,0 +1,160 @@
+{
+  "commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "executed_at_utc": "2026-09-17T09:32:07.344199+00:00",
+  "source_checks": [
+    {
+      "path": "p0/pinned/9e948ba/web/lib/fs.js",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/go.mod",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/LICENSE",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/tests/playwright.config.js",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/tests/package.json",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/moveFile.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/syncFilesWithServer.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/getFileStatus.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    }
+  ],
+  "scope": "fixed functions, original getFileStatus/read/exists, test-only Node disk handles and HTTP response seam",
+  "full_checkout": false,
+  "real_http_requests": 0,
+  "real_user_vault_accessed": false,
+  "candidate_integrated_in_application": false,
+  "candidate_hashes": {
+    "p0/patches/0002-fail-closed-sync-scan.patch": "c991fd3818483fca04372afa433dd619c56b205d766a0b95ec58f374bf519bec",
+    "p0/candidates/delete-guard/collectModifiedAndDeletedFiles.function.js": "8639d234ad23e1ca0348c925fdc6597409bbf29bd538b27805ad475b7f7fbde0",
+    "p0/candidates/delete-guard/syncFilesWithServer.function.js": "555c3032595b9ccf0be3ecb49a2a80a4f56983d23f8464107110e0eb53576a83",
+    "p0/tests/delete-guard.test.cjs": "1e43c2be41e0cec077f3c6a9cd06a1543deca4f0c7808ac4bcbdb55dc3e803d7"
+  },
+  "patch_context": {
+    "scope": "synthetic sparse file containing exact known ranges, NOT complete checkout",
+    "candidate_bodies_match": true,
+    "commands": [
+      {
+        "command": [
+          "git",
+          "apply",
+          "--check",
+          "/mnt/data/.xuye-next-work/xuye-p0/p0/patches/0002-fail-closed-sync-scan.patch"
+        ],
+        "exit_code": 0,
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "apply",
+          "/mnt/data/.xuye-next-work/xuye-p0/p0/patches/0002-fail-closed-sync-scan.patch"
+        ],
+        "exit_code": 0,
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "apply",
+          "--check",
+          "/mnt/data/.xuye-next-work/xuye-p0/p0/patches/0001-propagate-move-error.patch"
+        ],
+        "exit_code": 0,
+        "stderr": ""
+      }
+    ]
+  },
+  "test_runs": [
+    {
+      "mode": "baseline",
+      "command": [
+        "node",
+        "--test",
+        "/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs"
+      ],
+      "exit_code": 1,
+      "tests": 18,
+      "pass": 4,
+      "fail": 14,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "expected_exit": 1,
+      "expectation_matched": true,
+      "log": "baseline.tap",
+      "failures": [
+        "actual pinned getFileStatus read error aborts classification",
+        "rejected status promise is normalized to incomplete scan",
+        "synchronous status exception is normalized to incomplete scan",
+        "unexpected status is not accepted as evidence of presence or deletion",
+        "mismatched result path cannot cause another path to be deleted",
+        "modified result without text payload blocks the batch",
+        "stale memory tree cannot authorize deletion of a file still on disk",
+        "permission failure probing a deletion candidate is not NotFound",
+        "root handle failure cannot authorize inferred deletions",
+        "text-sync exclusions apply equally to local and server scans",
+        "too-many-deletions guard preserves the confirmed server snapshot",
+        "mixed good change and read failure sends zero batches and changes no snapshot",
+        "scan rejection releases the in-flight flag without uploading",
+        "after a blocked scan, clearing the fault permits a normal retry"
+      ]
+    },
+    {
+      "mode": "candidate",
+      "command": [
+        "node",
+        "--test",
+        "/mnt/data/.xuye-next-work/xuye-p0/p0/tests/delete-guard.test.cjs"
+      ],
+      "exit_code": 0,
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "expected_exit": 0,
+      "expectation_matched": true,
+      "log": "candidate.tap",
+      "failures": []
+    }
+  ],
+  "remaining": [
+    "legacy absence-based deletion is not a versioned user-authorized tombstone",
+    "no whole-scan snapshot/lock, root binding proof, or check-to-upload atomicity",
+    "other upload/download and individual-file sync paths are not guarded by this patch",
+    "scan failure is logged; app-level UX has not been validated",
+    "no browser, full application, server sync, container, mobile, or P0 acceptance"
+  ],
+  "all_expected_results_matched": true
+}

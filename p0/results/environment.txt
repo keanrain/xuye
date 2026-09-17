@@ -1,0 +1,7 @@
+Node v22.16.0
+Go go1.23.2 linux/amd64
+Chromium 144.0.7559.96
+Python Playwright installed
+Tauri/Rust not present on PATH
+Network: git clone failed: Could not resolve host: github.com
+Complete upstream tests and application boot: not run

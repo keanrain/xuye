@@ -1,0 +1,9 @@
+--- a/web/files.js
++++ b/web/files.js
+@@ -1023,5 +1023,6 @@
+         log(`Moved ${oldPath} to ${newPath}`);
+     } catch (error) {
+         logError('Error moving file:', error);
++        throw error;
+     }
+ }

@@ -1,0 +1,4 @@
+Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:44043/index.html
+Call log:
+  - navigating to "http://127.0.0.1:44043/index.html", waiting until "load"
+

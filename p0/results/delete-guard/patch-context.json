@@ -1,0 +1,7 @@
+{
+  "scope": "synthetic sparse file with exact pinned function ranges; not a full upstream checkout",
+  "check_patch_0002_exit": 0,
+  "apply_patch_0002_exit": 0,
+  "candidate_bodies_match": true,
+  "check_patch_0001_after_0002_exit": 0
+}

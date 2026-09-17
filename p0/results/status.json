@@ -1,0 +1,100 @@
+{
+  "phase": "P0",
+  "overall": "in-progress; two local safety candidates characterized; full P0 not accepted",
+  "upstream_commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "upstream_tree": "3f484150ea082a3f91e7b2b194f8bae9edf48cbf",
+  "pin_method": "connected GitHub branch/contents API; read-only",
+  "complete_local_checkout": false,
+  "completed": {
+    "upstream_identity": "full commit and tree read through GitHub; active target saved",
+    "full_source_blobs_git_sha_verified": 5,
+    "selected_functions_from_fixed_files_js": 4,
+    "prior_helpers_rerun_against_complete_pinned_fs_js": {
+      "assertions": 9,
+      "confirmed": 9
+    },
+    "callchain_characterization": {
+      "checks": 7,
+      "confirmed": 7
+    },
+    "source_survival_regression_against_original": {
+      "tests": 7,
+      "pass": 5,
+      "fail": 2,
+      "exit": 1,
+      "meaning": "actual failing source-survival assertions, expected for original code"
+    },
+    "one_line_candidate": {
+      "tests": 7,
+      "pass": 7,
+      "fail": 0,
+      "exit": 0,
+      "scope": "in-memory moveFile function patch only; no actual application integration"
+    },
+    "go_toolchain_preflight": "actually blocked by required go>=1.24; installed1.23.2",
+    "product_rules": "unchanged",
+    "delete_scan_guard": {
+      "baseline": {
+        "tests": 18,
+        "pass": 4,
+        "fail": 14,
+        "skipped": 0,
+        "exit": 1
+      },
+      "candidate": {
+        "tests": 18,
+        "pass": 18,
+        "fail": 0,
+        "skipped": 0,
+        "exit": 0
+      },
+      "patch": "p0/patches/0002-fail-closed-sync-scan.patch",
+      "report": "p0/results/delete-guard/verification.json",
+      "scope": "pinned functions with real temporary disk and test-only handles/network response; no full application",
+      "integrated_in_application": false
+    }
+  },
+  "findings": [
+    {
+      "id": "P0-F01",
+      "status": "reproduced with pinned functions and disk test seams",
+      "description": "moveFile catches write failure, moveDir treats it as success and recursively deletes remaining original files"
+    },
+    {
+      "id": "P0-F02",
+      "status": "reproduced through pinned getFileStatus; candidate guard passes isolated red/green checks; not integrated",
+      "description": "unreadable/unknown file state blocks batch; missing memory entries probed; retry verified; legacy absence-based deletion protocol still not replaced"
+    },
+    {
+      "id": "P0-F03",
+      "status": "fixed-ref source inspection only",
+      "description": "actual local delete calls in incoming deleted branch are commented out"
+    },
+    {
+      "id": "P0-F04",
+      "status": "fixed-ref source inspection and local preflight",
+      "description": "upstream go.mod requires 1.24; preceding generic Go1.23 guidance is insufficient for this checkout"
+    }
+  ],
+  "not_completed": [
+    "complete checkout",
+    "original UI startup",
+    "upstream full test suites",
+    "all-write-path call graph audit",
+    "actual OPFS/browser",
+    "Tauri/mobile",
+    "model stream",
+    "notifications/sharing",
+    "production candidate integration",
+    "P0 acceptance"
+  ],
+  "remaining_environment_constraints": [
+    "normal git DNS resolution unavailable",
+    "prior Chromium localhost administrator restriction; no retry/bypass this round",
+    "Go1.23.2 below upstream1.24"
+  ],
+  "remote_writes": false,
+  "real_user_vault_accessed": false,
+  "important": "18/18 deletion-guard candidate assertions do not imply full sync safety. Legacy inferred deletion, root binding, snapshot races, other write paths and actual application integration remain unverified. Both candidates remain isolated.",
+  "this_round_environment": "Python/Node/Git isolated checks executed; clone/Go/browser not retried; prior environment constraints remain historical observations."
+}

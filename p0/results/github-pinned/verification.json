@@ -1,0 +1,78 @@
+{
+  "commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "source_checks": [
+    {
+      "path": "p0/pinned/9e948ba/web/lib/fs.js",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/go.mod",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/LICENSE",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/tests/playwright.config.js",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/tests/package.json",
+      "kind": "full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/moveFile.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/syncFilesWithServer.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    },
+    {
+      "path": "p0/pinned/9e948ba/web/getFileStatus.function.js",
+      "kind": "selected-function-not-full-blob",
+      "verified": true
+    }
+  ],
+  "executed_at_utc": "2026-09-17T09:32:07.749392+00:00",
+  "tests": [
+    {
+      "log": "callchains-baseline.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-regression-red.tap",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "expectation_matched": true
+    },
+    {
+      "log": "callchains-candidate-green.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    },
+    {
+      "log": "helpers-pinned.tap",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "expectation_matched": true
+    }
+  ],
+  "scope": "fixed source functions + test-only disk seams. Red failures are expected; green candidate does not pass all product requirements."
+}

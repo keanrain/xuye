@@ -1,0 +1,56 @@
+{
+  "scope": "document links, source immutability, script syntax, and actual isolated test driver execution",
+  "local_links_checked": 35,
+  "broken_links": [],
+  "previous_pinned_and_patch_files_unchanged": [
+    "p0/patches/0001-propagate-move-error.patch",
+    "p0/pinned/9e948ba/LICENSE",
+    "p0/pinned/9e948ba/go.mod",
+    "p0/pinned/9e948ba/web/collectModifiedAndDeletedFiles.function.js",
+    "p0/pinned/9e948ba/web/moveFile.function.js",
+    "p0/pinned/9e948ba/tests/package.json",
+    "p0/pinned/9e948ba/tests/playwright.config.js",
+    "p0/pinned/9e948ba/web/lib/fs.js"
+  ],
+  "unchanged_product_documents": {
+    "PRODUCT.md": "28d98ed1830a4062f494f6b7f2655f561e739b32ec95377869a914e9aaea9a2f",
+    "PRODUCT-SPEC.md": "0f897167db20ed3c795ce1ddea08a44b119f2fed9b17abb2efbcc64b971539b2",
+    "DESIGN.md": "db69fc91d25bcfcba4fcafbde8f0928df518924a5259c3832b1707ed393f5d4f"
+  },
+  "executed_checks": [
+    {
+      "name": "driver",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "scripts/p0.py",
+        "check-delete-guard"
+      ],
+      "exit_code": 0,
+      "log": "driver.log"
+    },
+    {
+      "name": "prior-checks",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "scripts/p0.py",
+        "check-fixed"
+      ],
+      "exit_code": 0,
+      "log": "prior-checks.log"
+    },
+    {
+      "name": "driver-selftests",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "p0/tests/driver_test.py"
+      ],
+      "exit_code": 0,
+      "log": "driver-selftests.log"
+    }
+  ],
+  "full_application_tested": false,
+  "remote_writes": false
+}

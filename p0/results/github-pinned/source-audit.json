@@ -1,0 +1,101 @@
+{
+  "commit": "9e948ba6071e320c41c866f92817cf96f9bb7ba6",
+  "tree": "3f484150ea082a3f91e7b2b194f8bae9edf48cbf",
+  "coverage": "selected fixed-ref paths; repository tree listing retrieved but all source bodies not audited",
+  "local_full_blob_files": [
+    "web/lib/fs.js",
+    "go.mod",
+    "LICENSE",
+    "tests/package.json",
+    "tests/playwright.config.js"
+  ],
+  "code_ranges": [
+    {
+      "path": "web/files.js",
+      "symbol": "moveFile",
+      "lines": [
+        994,
+        1027
+      ],
+      "materialized": true
+    },
+    {
+      "path": "web/files.js",
+      "symbol": "collectModifiedAndDeletedFiles",
+      "lines": [
+        704,
+        792
+      ],
+      "materialized": true
+    },
+    {
+      "path": "web/files.js",
+      "lines": [
+        1280,
+        1650
+      ],
+      "materialized": false,
+      "scope": "read through connector; syncCurrentFile, hash and other code"
+    },
+    {
+      "path": "web/files.js",
+      "lines": [
+        1,
+        600
+      ],
+      "materialized": false,
+      "scope": "readable connector snapshot; incoming deletion branch"
+    },
+    {
+      "path": "server/sync/merge.go",
+      "materialized": false,
+      "scope": "complete code read through connector; still not rerun as full Go package"
+    },
+    {
+      "path": "Makefile",
+      "materialized": false,
+      "scope": "read through connector; broad killall avoided"
+    },
+    {
+      "path": "tests/package-lock.json",
+      "materialized": false,
+      "scope": "read; Playwright1.53.0; http-server absent from lock"
+    },
+    {
+      "path": "web/files.js",
+      "symbol": "syncFilesWithServer",
+      "lines": [
+        278,
+        420
+      ],
+      "materialized": true,
+      "scope": "fixed function range added for deletion-guard tests, not complete file"
+    },
+    {
+      "path": "web/files.js",
+      "symbol": "getFileStatus",
+      "lines": [
+        813,
+        868
+      ],
+      "materialized": true,
+      "scope": "fixed function range added for deletion-guard tests, not complete file"
+    }
+  ],
+  "still_missing": [
+    "server/fs full bodies",
+    "all frontend callers and DOM flow",
+    "entire dependency tree as executable checkout",
+    "runtime OPFS/browser evidence"
+  ],
+  "source_links": {
+    "web/files.js": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/web/files.js",
+    "web/lib/fs.js": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/web/lib/fs.js",
+    "server/sync/merge.go": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/server/sync/merge.go",
+    "Makefile": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/Makefile",
+    "go.mod": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/go.mod",
+    "tests/package.json": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/tests/package.json",
+    "tests/package-lock.json": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/tests/package-lock.json",
+    "tests/playwright.config.js": "https://github.com/zakirullin/files.md/blob/9e948ba6071e320c41c866f92817cf96f9bb7ba6/tests/playwright.config.js"
+  }
+}
